@@ -1,40 +1,47 @@
 import pandas as pd
+import random
 
-# Manually recreate the dummy data
-dummy_data_manual = {
-    "No": [1, 2, 3, 4, 5],
-    "House Type": ["Condo", "Villa", "Townhouse", "Detached", "Condo"],
-    "Address": [
-        "101 Moo 5, Chiang Mai",
-        "102 Moo 6, Chiang Mai",
-        "103 Moo 3, Chiang Mai",
-        "104 Moo 4, Chiang Mai",
-        "105 Moo 2, Chiang Mai"
-    ],
-    "Township": ["Mueang", "Hang Dong", "San Sai", "Mae Rim", "Mueang"],
-    "District": ["City Center", "Suburb", "Rural Area", "Suburb", "City Center"],
-    "Bed Room": [2, 3, 2, 3, 1],
-    "Single Room": [1, 1, 2, 1, 1],
-    "Lat/Long": [
-        "18.751234, 98.975432",
-        "18.765432, 98.984321",
-        "18.743210, 98.965432",
-        "18.732145, 98.978901",
-        "18.749876, 98.962345"
-    ],
-    "Price (THB)": [3200000, 5600000, 2800000, 4500000, 2200000],
-    "Map Location": [
-        "https://maps.example.com/location1",
-        "https://maps.example.com/location2",
-        "https://maps.example.com/location3",
-        "https://maps.example.com/location4",
-        "https://maps.example.com/location5"
-    ],
-    "Remark": ["New listing", "Fully furnished", "Price negotiable", "Urgent sale", "New listing"]
-}
+# List of real Chiang Mai townships (amphoes/subdistricts)
+townships = [
+    "Mueang", "Hang Dong", "San Sai", "Mae Rim", "Saraphi", "San Kamphaeng", "Doi Saket", "San Pa Tong",
+    "Mae On", "Mae Taeng", "Chom Thong", "Doi Lo", "Hot", "Omkoi", "Samoeng", "Phrao", "Mae Chaem", "Wiang Haeng",
+    "Mae Wang", "Doi Tao", "Chiang Dao", "Mae Ai"
+]
+
+house_types = ["Condo", "Villa", "Townhouse", "Detached", "Apartment", "Bungalow"]
+districts = ["City Center", "Suburb", "Rural Area", "Old Town", "New Town"]
+remarks = ["New listing", "Fully furnished", "Price negotiable", "Urgent sale", "Renovated", "Great view", "Near school", "Near market", "Quiet area", "Investment opportunity"]
+
+records = []
+for i in range(1, 3001):
+    township = random.choice(townships)
+    house_type = random.choice(house_types)
+    address = f"{100 + i} Moo {random.randint(1, 10)}, Chiang Mai"
+    district = random.choice(districts)
+    bed_room = random.randint(1, 5)
+    single_room = random.randint(1, 3)
+    lat = round(random.uniform(18.6, 19.0), 6)
+    lng = round(random.uniform(98.8, 99.1), 6)
+    latlong = f"{lat}, {lng}"
+    price = random.randint(1500000, 12000000)
+    map_location = f"https://maps.example.com/location{i}"
+    remark = random.choice(remarks)
+    records.append({
+        "No": i,
+        "House Type": house_type,
+        "Address": address,
+        "Township": township,
+        "District": district,
+        "Bed Room": bed_room,
+        "Single Room": single_room,
+        "Lat/Long": latlong,
+        "Price (THB)": price,
+        "Map Location": map_location,
+        "Remark": remark
+    })
 
 # Create DataFrame
-dummy_df_manual = pd.DataFrame(dummy_data_manual)
+dummy_df_manual = pd.DataFrame(records)
 
 # Save as CSV
 csv_file_path = "D:\\works\\MG-DSA\\ChiangMai_RealEstate_DummyData.csv"
