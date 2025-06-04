@@ -1,0 +1,6 @@
+print('Student ID: 6710010164')
+print('Name:MG KYAING')
+print('Hello, World!')
+print('I am a student at NCU,Ching Mai, Thailand.')
+print('I am studying in the Faculty of Engineering, AI and Data Science program.')
+print('I am interested in AI and Data Science.')

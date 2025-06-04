@@ -9,7 +9,7 @@ townships = [
 ]
 
 house_types = ["Condo", "Villa", "Townhouse", "Detached", "Apartment", "Bungalow"]
-districts = ["City Center", "Suburb", "Rural Area", "Old Town", "New Town"]
+districts = ["San Sai Luang","San Na Meng","Nong Han","Mae Faek"]
 remarks = ["New listing", "Fully furnished", "Price negotiable", "Urgent sale", "Renovated", "Great view", "Near school", "Near market", "Quiet area", "Investment opportunity"]
 
 records = []
@@ -23,8 +23,8 @@ for i in range(1, 3001):
     lat = round(random.uniform(18.6, 19.0), 6)
     lng = round(random.uniform(98.8, 99.1), 6)
     latlong = f"{lat}, {lng}"
-    price = random.randint(1500000, 12000000)
-    map_location = f"https://maps.example.com/location{i}"
+    price = random.randint(6500, 13000)
+    map_location = f"https://www.google.com/maps?q={lat},{lng}"
     remark = random.choice(remarks)
     records.append({
         "No": i,
@@ -35,7 +35,7 @@ for i in range(1, 3001):
         "Bed Room": bed_room,
         "Single Room": single_room,
         "Lat/Long": latlong,
-        "Price (THB)": price,
+        "Price (THB)/Per Month": price,
         "Map Location": map_location,
         "Remark": remark
     })
@@ -46,5 +46,3 @@ dummy_df_manual = pd.DataFrame(records)
 # Save as CSV
 csv_file_path = "D:\\works\\MG-DSA\\ChiangMai_RealEstate_DummyData.csv"
 dummy_df_manual.to_csv(csv_file_path, index=False)
-
-csv_file_path
