@@ -1,0 +1,4 @@
+https://github.com/abdulwahid880/School-Management-system-in-laravel-
+https://github.com/rahathossaino/sikhi
+https://github.com/4jean/lav_sms
+https://github.com/OmarKadish/school-managament-system-laravel
